@@ -194,6 +194,7 @@ def create_app(test_config=None):
         coaches_list=[]
         for t_coach in coaches:
           coaches_list.append( t_coach.format())
+        print(111111111)
         return jsonify(
         {'success': True,
         'added_coach': coach.id,

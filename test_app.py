@@ -18,10 +18,10 @@ class GymTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "gym_test"
-        self.database_path = "postgresql://{}:{}@{}/{}".format('postgres','987654321','localhost:5432', self.database_name)
-        self.t_client = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVHTzN4V0k5TjZ1eld0YkFfV0JSVyJ9.eyJpc3MiOiJodHRwczovL3RoZS1neW0tcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjE1ZGRlNTdjNjllYjIwMDcwNGJmY2UzIiwiYXVkIjoiZ3ltIiwiaWF0IjoxNjMzNTYyMjkzLCJleHAiOjE2MzM2NDg2OTMsImF6cCI6IjNrOE1zd1VGSEczZXhCZFpwYjZheVcxME1sa1ZsdVp5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Q29hY2hlcyIsImdldDpUcmFpbmluZ0NsYXNzZXMiXX0.Y_sk9uNCrKdDfDvA1vVUBmP9g7eQY4Fcbt8cWt02rVHOqSyUZcMiaOS4hcc06jlHbHCn-2847IZiqC6s1JEW8Y2VBzF1mh0MNkLkmc8N45Yp6wcBl0z_3QuVNaHbykuSj3gypQo2CO1pJWIwY506YjGjbdAMRHLe1gT21q70ErR21AQFKjdVrK7GSpSHS7jzefEHRJqRShOcdxg-CjjfF1ftJRqEjZlpB31t5MYGbZo07do_o3imn2-NFc1_Kt2ntyyE3M8v8jEDzgkzTwiLTmm5L6r6MlhKSx8K_ZGn7vAwWBUUOWk_BAnZPDsGewvqQ29p8uSRD8retmWLqtst1w' 
+        self.database_path = "postgresql://rznjnhznkyrokd:464a3ad615c337bc249a2e346c63dd20ef4c304e2a6321bb5418350c0c858406@ec2-23-22-191-232.compute-1.amazonaws.com:5432/d1nui7mnbvq7vc"
+        self.t_client = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVHTzN4V0k5TjZ1eld0YkFfV0JSVyJ9.eyJpc3MiOiJodHRwczovL3RoZS1neW0tcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjE1ZGRlNTdjNjllYjIwMDcwNGJmY2UzIiwiYXVkIjoiZ3ltIiwiaWF0IjoxNjMzNTg4OTIwLCJleHAiOjE2MzM2NzUzMjAsImF6cCI6IjNrOE1zd1VGSEczZXhCZFpwYjZheVcxME1sa1ZsdVp5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Q29hY2hlcyIsImdldDpUcmFpbmluZ0NsYXNzZXMiXX0.Omdl0vsrahv9RJo9J4IuvXpFH0LZTfSd_AeaMqRyYRFI-Z8g7jEemlVefIBZV0Dykuc1KfBD8QaFqhUvK1ZhK5DpZky2rhwX2vSYh4tz101Anx_TeDhb5BPUCHu06j8AZZXIIhKTafHiQpALJKCSwZTaryHE-9YLc_Gin9JRcAB3LImCCK3SvWO-advF6s8xGYbygJHixjRjlD89LJ4lUPmZfT0EM-t4rhmpDvzdRlAx4kwi0zmr92KaVX3rPTe6WmefzEky60cmn29mRMLBPmbrUtxd4tgY362V86oppnMxgLPgFrMqJC0ov8OuseaxTGqlrcAU3KSujz4qj1JvOw' 
         self.t_prod = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
-        self.t_managment = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVHTzN4V0k5TjZ1eld0YkFfV0JSVyJ9.eyJpc3MiOiJodHRwczovL3RoZS1neW0tcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjE1ZGQxOTZmZjg2ZjYwMDZhMzU1MWViIiwiYXVkIjoiZ3ltIiwiaWF0IjoxNjMzNTYyMjQzLCJleHAiOjE2MzM2NDg2NDMsImF6cCI6IjNrOE1zd1VGSEczZXhCZFpwYjZheVcxME1sa1ZsdVp5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Q29hY2hlcyIsImRlbGV0ZTpUcmFpbmluZ0NsYXNzZXMiLCJnZXQ6Q29hY2hlcyIsImdldDpUcmFpbmluZ0NsYXNzZXMiLCJwYXRjaDpUcmFpbmluZ0NsYXNzZXMiLCJwb3N0OkNvYWNoZXMiLCJwb3N0OlRyYWluaW5nQ2xhc3NlcyJdfQ.CIQDld6JpwpqT_R-YtFyp-GFl4Evfk2SV9y34hJ83BSJMfBv4fEi9rZMDxf3-XKOoAOOWG9m92ePSSlve3zjlQVZdv9XherM9BvIOKTiFTlvGct24cIwn67JIreJIHp8c5HeoGd39zzu6kJjLilcpaBV3Ez53o3wpTpTCY-eC0032iRcNZ31PSKY8GwJBaTnX2xlWwnqsRKcHZVDHzJPem8_cpjG4v1LgZ9oOkAxm2YzdWabf0zO29-SGpUb-zu-8hskhrawHq2wu0ryZcw-xSji-1ap-XKzoDuVEr8UtlA_62HwBF53jASc7DnOs_IHiHF-r_cYMDtj1iEquKMtWA'
+        self.t_managment = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InVHTzN4V0k5TjZ1eld0YkFfV0JSVyJ9.eyJpc3MiOiJodHRwczovL3RoZS1neW0tcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjE1ZGQxOTZmZjg2ZjYwMDZhMzU1MWViIiwiYXVkIjoiZ3ltIiwiaWF0IjoxNjMzNTg4MTcyLCJleHAiOjE2MzM2NzQ1NzIsImF6cCI6IjNrOE1zd1VGSEczZXhCZFpwYjZheVcxME1sa1ZsdVp5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Q29hY2hlcyIsImRlbGV0ZTpUcmFpbmluZ0NsYXNzZXMiLCJnZXQ6Q29hY2hlcyIsImdldDpUcmFpbmluZ0NsYXNzZXMiLCJwYXRjaDpUcmFpbmluZ0NsYXNzZXMiLCJwb3N0OkNvYWNoZXMiLCJwb3N0OlRyYWluaW5nQ2xhc3NlcyJdfQ.g-FhdX4Vgb_utuM9oTPTVdmR0l9JjwlNDxT0CrH8czptht3RmolhR5GpOEXxU6762hteKB1L5yd3fRSzpaKwxq-oBEMhhH6lRjIwr8bzSwJEogJRm9VOWGf60KN-_S1dFa37A52vWKjJrJHeF99LsfNlCpCJXk8BHJ8yWCfnB_x1oTt2fnFQ3ubkOLrmntoc-WK8HuQjKhSu80KyeAejfU1hsUWKF6GGCQR3QJgVsd67p6OLSqHnnOj86KJCibmCUs1U9R2G59_Olg_7qHfZ9obOrxZuX2UDDjLoc8XjzBVDo5SerG08IZJUnrk1gSB4memT3dKj9ce2zKfCM_nmFQ'
         setup_db(self.app, self.database_path)
 
         # binds the app to the current context
@@ -55,7 +55,6 @@ class GymTestCase(unittest.TestCase):
         ,headers={'Authorization':'Bearer ' +self.t_client}
         ) #the way of sending the header is referenced from https://knowledge.udacity.com/questions/200723
         data=json.loads(res.data)
-        print(data)
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'], True)
         self.assertTrue(data['trainingClasses'])
@@ -85,15 +84,15 @@ class GymTestCase(unittest.TestCase):
     def test_delete_trainingClass_as_managment(self):
         res1=self.client().get('/TrainingClasses',headers={'Authorization':'Bearer ' +self.t_managment})
         data1=json.loads(res1.data)
-        res=self.client().delete('/TrainingClasses/18'
+        res=self.client().delete('/TrainingClasses/7'
         ,headers={'Authorization':'Bearer ' +self.t_managment}
         )#the way of sending the header is referenced from https://knowledge.udacity.com/questions/200723
         data=json.loads(res.data)
 
-        t_class=TrainingClass.query.filter(TrainingClass.id == 18).one_or_none()
+        t_class=TrainingClass.query.filter(TrainingClass.id == 7).one_or_none()
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertEqual(data['deleted'],18)
+        self.assertEqual(data['deleted'],7)
         self.assertTrue(data['trainingClasses'])
         self.assertEqual(len(data['trainingClasses']) , len(data1['trainingClasses'])-1)
         self.assertEqual(t_class,None)
@@ -174,16 +173,16 @@ class GymTestCase(unittest.TestCase):
 
     def test_patch_trainingClass_as_managment(self):
 
-        res=self.client().patch('/TrainingClasses/9', json={ 'periods':['1','3'], 'dayes':['sat','wed']
+        res=self.client().patch('/TrainingClasses/2', json={ 'periods':['1','3'], 'dayes':['sat','wed']
         }
         ,headers={'Authorization':'Bearer ' +self.t_managment}
         )#the way of sending the header is referenced from https://knowledge.udacity.com/questions/200723
         data=json.loads(res.data)
-        trainingClass=TrainingClass.query.filter(TrainingClass.id == 9).one_or_none()
+        trainingClass=TrainingClass.query.filter(TrainingClass.id == 2).one_or_none()
 
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertEqual(data['patched'],9)
+        self.assertEqual(data['patched'],2)
         self.assertEqual(trainingClass.periods,['1','3'])
         self.assertEqual(trainingClass.dayes,['sat','wed'])
         self.assertTrue(data['trainingClasses'])
@@ -191,7 +190,7 @@ class GymTestCase(unittest.TestCase):
         
 
     def test_422_if_trainingClass_patching_unprocessable(self):
-        res=self.client().patch('/TrainingClasses/9', json={
+        res=self.client().patch('/TrainingClasses/2', json={
             'periods':'2,3',
             'dayes':1
         }
@@ -222,16 +221,16 @@ class GymTestCase(unittest.TestCase):
         res1=self.client().get('/Coaches',headers={'Authorization':'Bearer ' +self.t_managment})
         data1=json.loads(res1.data)
 
-        res=self.client().delete('/Coaches/17'
+        res=self.client().delete('/Coaches/7'
         ,headers={'Authorization':'Bearer ' +self.t_managment}
         )#the way of sending the header is referenced from https://knowledge.udacity.com/questions/200723
         data=json.loads(res.data)
 
-        coach=Coach.query.filter(Coach.id == 17).one_or_none()
+        coach=Coach.query.filter(Coach.id == 7).one_or_none()
         
         self.assertEqual(res.status_code,200)
         self.assertEqual(data['success'],True)
-        self.assertEqual(data['deleted'],17)
+        self.assertEqual(data['deleted'],7)
         self.assertTrue(data['coaches'])
         self.assertTrue(len(data['coaches']) == len(data1['coaches'])-1)
         self.assertEqual(coach,None)
@@ -262,8 +261,6 @@ class GymTestCase(unittest.TestCase):
             ,headers={'Authorization':'Bearer ' +self.t_managment}
             )#the way of sending the header is referenced from https://knowledge.udacity.com/questions/200723
         data=json.loads(res.data)
-        print(data)
-        print(data)
         coach=Coach.query.filter(Coach.id == data['added_coach']).one_or_none()
 
         self.assertEqual(res.status_code,200)
