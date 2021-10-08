@@ -56,6 +56,7 @@ class GymTestCase(unittest.TestCase):
                                          'Bearer ' + self.t_client})
 
         data = json.loads(res.data)
+        print(data)
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
         self.assertTrue(data['trainingClasses'])
@@ -94,16 +95,16 @@ class GymTestCase(unittest.TestCase):
         data1 = json.loads(res1.data)
         # the way of sending the header is referenced from
         # https://knowledge.udacity.com/questions/200723
-        res = self.client().delete('/TrainingClasses/3',
+        res = self.client().delete('/TrainingClasses/10',
                                    headers={'Authorization': 'Bearer '
                                             + self.t_managment})
         data = json.loads(res.data)
 
         t_class = TrainingClass.query.filter(
-            TrainingClass.id == 3).one_or_none()
+            TrainingClass.id == 10).one_or_none()
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], 3)
+        self.assertEqual(data['deleted'], 10)
         self.assertTrue(data['trainingClasses'])
         self.assertEqual(len(data['trainingClasses']),
                          len(data1['trainingClasses']) - 1)
@@ -246,17 +247,17 @@ class GymTestCase(unittest.TestCase):
 
         # the way of sending the header is referenced from
         # https://knowledge.udacity.com/questions/200723
-        res = self.client().delete('/Coaches/3',
+        res = self.client().delete('/Coaches/10',
                                    headers={'Authorization':
                                             'Bearer ' + self.t_managment})
 
         data = json.loads(res.data)
 
-        coach = Coach.query.filter(Coach.id == 3).one_or_none()
+        coach = Coach.query.filter(Coach.id == 10).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], 3)
+        self.assertEqual(data['deleted'], 10)
         self.assertTrue(data['coaches'])
         self.assertTrue(len(data['coaches']) ==
                         len(data1['coaches']) - 1)
