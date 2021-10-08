@@ -2,10 +2,12 @@
 
 
 ## Overview:
-This is a gym servise website. this simple website allows an authorized client to view the training classes and coaches 
-information that is saved in the database. It also allows an authorized manager to view, add and delete training
-classes and coaches information and also allows them to update a class information.
+This is a gym servise website. this simple website allows an authorized client to view the training classes and coaches information that is saved in the database. It also allows an authorized manager to view, add and delete training classes and coaches information and also allows them to update a class information.
 this website uses Auth0 as a authentication provider and herokuapp for hosting deployment.
+
+## Motivation:
+Excer Force is the name of the gym I workout at and it has no offical website or app so the reservations 
+,viewing of the classes and other managment tasks are done by communicating with the managment by whatsapp which is not convenient for the clients or the managment. What motivated me to do this project is that maybe I could scale it and finish all the required tasks and give it to them.
 
 
 ## Getting Started:
